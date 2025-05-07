@@ -9,14 +9,14 @@
           [
             [
               -106.596041,
-              40.403029
+              40.392313
             ],
             [
-              -106.131068,
-              40.403029
+              -106.586991,
+              40.392313
             ],
             [
-              -106.131068,
+              -106.586991,
               40.92683
             ],
             [
@@ -25,7 +25,7 @@
             ],
             [
               -106.596041,
-              40.403029
+              40.392313
             ]
           ]
         ]
@@ -34,14 +34,30 @@
         "name": "Map Boundary",
         "source": "Derived from Map-Level Township Ranges",
         "map_township_ranges_used": [
-          "T11N R82W Section 15",
-          "T10N R82W Section 15",
+          "T5N R82W Section 15",
+          "T6N R82W Section 15",
+          "T7N R82W Section 15",
+          "T8N R82W Section 15",
           "T9N R82W Section 15",
-          "T8N R81W Section 15",
-          "T7N R80W Section 15",
-          "T6N R79W Section 15",
-          "T5N R78W Section 15"
+          "T10N R82W Section 15",
+          "T11N R82W Section 15"
         ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.481527,
+          40.752856
+        ]
+      },
+      "properties": {
+        "name": "Poudre Site Dam & Reservoir",
+        "type": "reservoir",
+        "coordinate_source": "Township-Range: T9N R81W Section 15",
+        "township_range_used": "T9N R81W Section 15"
       }
     },
     {
@@ -54,8 +70,8 @@
         ]
       },
       "properties": {
-        "name": "Poudre Lake",
-        "type": "lake",
+        "name": "Rand Site Dam & Reservoir",
+        "type": "reservoir",
         "coordinate_source": "Township-Range: T7N R81W Section 15",
         "township_range_used": "T7N R81W Section 15"
       }
@@ -65,31 +81,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.681022,
-          40.744628
+          -105.79441,
+          40.746715
         ]
       },
       "properties": {
         "name": "Sand Mill",
-        "type": "reservoir",
-        "coordinate_source": "Township-Range: T9N R74W Section 15",
-        "township_range_used": "T9N R74W Section 15"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -105.9066,
-          40.835438
-        ]
-      },
-      "properties": {
-        "name": "Glendevey",
-        "type": "reservoir",
-        "coordinate_source": "Township-Range: T10N R76W Section 15",
-        "township_range_used": "T10N R76W Section 15"
+        "type": "creek",
+        "coordinate_source": "Township-Range: T9N R75W Section 15",
+        "township_range_used": "T9N R75W Section 15"
       }
     }
   ]
