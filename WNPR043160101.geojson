@@ -1,0 +1,47 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -105.102811,
+              40.13793
+            ],
+            [
+              -104.989138,
+              40.13793
+            ],
+            [
+              -104.989138,
+              40.313435
+            ],
+            [
+              -105.102811,
+              40.313435
+            ],
+            [
+              -105.102811,
+              40.13793
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Map Boundary",
+        "source": "Derived from Map-Level Township Ranges",
+        "map_township_ranges_used": [
+          "T2N R68W Section 15",
+          "T3N R68W Section 15",
+          "T4N R68W Section 15",
+          "T2N R69W Section 15",
+          "T3N R69W Section 15",
+          "T4N R69W Section 15"
+        ]
+      }
+    }
+  ]
+}
