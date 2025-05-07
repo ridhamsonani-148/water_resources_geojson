@@ -1,4 +1,69 @@
 {
   "type": "FeatureCollection",
-  "features": []
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -105.909765,
+              40.307556
+            ],
+            [
+              -105.553514,
+              40.307556
+            ],
+            [
+              -105.553514,
+              40.48883
+            ],
+            [
+              -105.909765,
+              40.48883
+            ],
+            [
+              -105.909765,
+              40.307556
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Map Boundary",
+        "source": "Derived from Map-Level Township Ranges",
+        "map_township_ranges_used": [
+          "T4N R73W Section 15",
+          "T5N R73W Section 15",
+          "T6N R73W Section 15",
+          "T4N R74W Section 15",
+          "T5N R74W Section 15",
+          "T6N R74W Section 15",
+          "T4N R75W Section 15",
+          "T5N R75W Section 15",
+          "T6N R75W Section 15",
+          "T4N R76W Section 15",
+          "T5N R76W Section 15",
+          "T6N R76W Section 15"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.778014,
+          40.308446
+        ]
+      },
+      "properties": {
+        "name": "Grand Lake",
+        "type": "lake",
+        "coordinate_source": "Township-Range: T4N R75W Section 15",
+        "township_range_used": "T4N R75W Section 15"
+      }
+    }
+  ]
 }
