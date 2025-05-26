@@ -1,4 +1,159 @@
 {
   "type": "FeatureCollection",
-  "features": []
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -107.3697001,
+              37.3158323
+            ],
+            [
+              -105.171198,
+              37.3158323
+            ],
+            [
+              -105.171198,
+              40.8009377
+            ],
+            [
+              -107.3697001,
+              40.8009377
+            ],
+            [
+              -107.3697001,
+              37.3158323
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Map Boundary",
+        "source": "Derived from Water Resource Coordinates"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.4582646,
+          40.244664
+        ]
+      },
+      "properties": {
+        "name": "Hill Creek",
+        "feature_type": "creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.0878502,
+          39.5627686
+        ]
+      },
+      "properties": {
+        "name": "Rainbow Lake",
+        "feature_type": "lake",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.4817058,
+          40.5575803
+        ]
+      },
+      "properties": {
+        "name": "Pole Mountain Lake",
+        "feature_type": "lake",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.171198,
+          39.8009033
+        ]
+      },
+      "properties": {
+        "name": "Kelly Lake",
+        "feature_type": "lake",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.5929783,
+          39.4394334
+        ]
+      },
+      "properties": {
+        "name": "North Platte",
+        "feature_type": "river",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -107.3697001,
+          37.3158323
+        ]
+      },
+      "properties": {
+        "name": "Sheep Creek",
+        "feature_type": "creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.1721443,
+          39.1061055
+        ]
+      },
+      "properties": {
+        "name": "Little Creek",
+        "feature_type": "creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.5905333,
+          40.8009377
+        ]
+      },
+      "properties": {
+        "name": "Mitchell Ditch",
+        "feature_type": "ditch",
+        "coordinate_source": "Geocoded"
+      }
+    }
+  ]
 }
