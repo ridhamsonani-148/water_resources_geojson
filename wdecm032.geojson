@@ -96,6 +96,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -105.8531052,
+          40.6050814
+        ]
+      },
+      "properties": {
+        "name": "Chambers Lake",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -105.1839401,
           40.1836735
         ]
@@ -180,20 +194,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -108.0964497,
-          37.7549769
-        ]
-      },
-      "properties": {
-        "name": "Eagle Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -104.8737875,
           39.7711226
         ]
@@ -236,40 +236,40 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -106.0887897,
+          40.9089827
+        ]
+      },
+      "properties": {
+        "name": "Grace Creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.5646968,
+          39.2413601
+        ]
+      },
+      "properties": {
+        "name": "Granite Creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -106.5975314,
           39.0424914
         ]
       },
       "properties": {
         "name": "Grizzly",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -107.2416392,
-          37.6532499
-        ]
-      },
-      "properties": {
-        "name": "Grizzly Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -106.3325916,
-          38.6657816
-        ]
-      },
-      "properties": {
-        "name": "Grizzly Lake",
         "coordinate_source": "Geocoded"
       }
     },
@@ -395,20 +395,6 @@
         ]
       },
       "properties": {
-        "name": "Little Fish Cr",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -108.2231598,
-          37.7826857
-        ]
-      },
-      "properties": {
         "name": "Little Fish Creek",
         "coordinate_source": "Geocoded"
       }
@@ -466,6 +452,20 @@
       },
       "properties": {
         "name": "North Fork",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.5929783,
+          39.4394334
+        ]
+      },
+      "properties": {
+        "name": "North Platte",
         "coordinate_source": "Geocoded"
       }
     },
@@ -564,6 +564,20 @@
       },
       "properties": {
         "name": "Silver Creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.1713788,
+          39.4074892
+        ]
+      },
+      "properties": {
+        "name": "South Platte",
         "coordinate_source": "Geocoded"
       }
     }
