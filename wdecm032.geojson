@@ -40,20 +40,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -107.4389795,
-          38.5005684
-        ]
-      },
-      "properties": {
-        "name": "Allen",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -105.5603713,
           40.6607785
         ]
@@ -82,20 +68,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -104.8338545,
-          39.1331945
-        ]
-      },
-      "properties": {
-        "name": "Cagle",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -104.9720707,
           38.8967507
         ]
@@ -116,34 +88,6 @@
       },
       "properties": {
         "name": "Cascade Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -105.8531052,
-          40.6050814
-        ]
-      },
-      "properties": {
-        "name": "Chambers",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -105.8531052,
-          40.6050814
-        ]
-      },
-      "properties": {
-        "name": "Chambers Lake",
         "coordinate_source": "Geocoded"
       }
     },
@@ -200,6 +144,20 @@
       },
       "properties": {
         "name": "Deer",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.8737875,
+          39.7711226
+        ]
+      },
+      "properties": {
+        "name": "East",
         "coordinate_source": "Geocoded"
       }
     },
@@ -334,12 +292,40 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -106.2787282,
+          40.7086987
+        ]
+      },
+      "properties": {
+        "name": "Illinois River",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -107.9205693,
           37.1852225
         ]
       },
       "properties": {
         "name": "Indian Creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.8899404,
+          40.5315018
+        ]
+      },
+      "properties": {
+        "name": "Joe Wright",
         "coordinate_source": "Geocoded"
       }
     },
@@ -382,20 +368,6 @@
       },
       "properties": {
         "name": "Little Fish Cr",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -108.2231598,
-          37.7826857
-        ]
-      },
-      "properties": {
-        "name": "Little Fish Creek",
         "coordinate_source": "Geocoded"
       }
     },
@@ -460,12 +432,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.0935813,
-          40.4516895
+          -105.5929783,
+          39.4394334
         ]
       },
       "properties": {
-        "name": "North Trail",
+        "name": "North Platte",
         "coordinate_source": "Geocoded"
       }
     },
@@ -550,6 +522,20 @@
       },
       "properties": {
         "name": "Silver Creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.1713788,
+          39.4074892
+        ]
+      },
+      "properties": {
+        "name": "South Platte",
         "coordinate_source": "Geocoded"
       }
     }
