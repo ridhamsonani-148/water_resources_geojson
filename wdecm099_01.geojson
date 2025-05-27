@@ -1,0 +1,277 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -106.1858449,
+              37.7400046
+            ],
+            [
+              -103.3872118,
+              37.7400046
+            ],
+            [
+              -103.3872118,
+              40.4354142
+            ],
+            [
+              -106.1858449,
+              40.4354142
+            ],
+            [
+              -106.1858449,
+              37.7400046
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Map Boundary",
+        "source": "Derived from Water Resource Coordinates"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.4713315,
+          40.4069247
+        ]
+      },
+      "properties": {
+        "name": "Balzac",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.1982945,
+          39.4224849
+        ]
+      },
+      "properties": {
+        "name": "Bijou",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.1982945,
+          39.4224849
+        ]
+      },
+      "properties": {
+        "name": "Bijou No 2",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.810804,
+          38.8568535
+        ]
+      },
+      "properties": {
+        "name": "Corona",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.682998,
+          39.7611067
+        ]
+      },
+      "properties": {
+        "name": "Empire",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.649411,
+          40.2114215
+        ]
+      },
+      "properties": {
+        "name": "Fort Morgan Canal",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.0153599,
+          39.9067352
+        ]
+      },
+      "properties": {
+        "name": "Jackson Lake",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.479847,
+          40.3709017
+        ]
+      },
+      "properties": {
+        "name": "Kuner",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.6360117,
+          40.2945265
+        ]
+      },
+      "properties": {
+        "name": "Lower Platte & Beaver Canal",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.2449505,
+          40.3094255
+        ]
+      },
+      "properties": {
+        "name": "Masters",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.1182837,
+          40.3310931
+        ]
+      },
+      "properties": {
+        "name": "Orchard",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.2919483,
+          37.7400046
+        ]
+      },
+      "properties": {
+        "name": "Point Of Rocks",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.3872118,
+          40.4354142
+        ]
+      },
+      "properties": {
+        "name": "Prewitt",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.1858449,
+          38.9289185
+        ]
+      },
+      "properties": {
+        "name": "Riverside Ditch",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.5963357,
+          40.3291471
+        ]
+      },
+      "properties": {
+        "name": "Snyder",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.1973387,
+          39.3041618
+        ]
+      },
+      "properties": {
+        "name": "South Platte River",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.1199878,
+          40.3416635
+        ]
+      },
+      "properties": {
+        "name": "Weldon",
+        "coordinate_source": "Geocoded"
+      }
+    }
+  ]
+}
