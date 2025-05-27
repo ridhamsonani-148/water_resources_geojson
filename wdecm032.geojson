@@ -40,20 +40,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.5603713,
-          40.6607785
-        ]
-      },
-      "properties": {
-        "name": "Bennett Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -106.6106893,
           40.9273826
         ]
@@ -74,6 +60,20 @@
       },
       "properties": {
         "name": "Cache La Poudre",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.5603713,
+          40.6607785
+        ]
+      },
+      "properties": {
+        "name": "Bennett Creek",
         "coordinate_source": "Geocoded"
       }
     },
@@ -115,7 +115,7 @@
         ]
       },
       "properties": {
-        "name": "Chambers Lake",
+        "name": "Chambers",
         "coordinate_source": "Geocoded"
       }
     },
@@ -166,20 +166,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -107.0532597,
-          37.5027239
-        ]
-      },
-      "properties": {
-        "name": "Deadman Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -106.0453594,
           39.4769486
         ]
@@ -194,12 +180,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -107.776434,
-          37.7190475
+          -108.0964497,
+          37.7549769
         ]
       },
       "properties": {
-        "name": "Deer Creek",
+        "name": "Eagle Creek",
         "coordinate_source": "Geocoded"
       }
     },
@@ -250,12 +236,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -106.0887897,
-          40.9089827
+          -105.5776185,
+          40.338498
         ]
       },
       "properties": {
-        "name": "Grace Creek",
+        "name": "Grace",
         "coordinate_source": "Geocoded"
       }
     },
@@ -264,12 +250,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -106.5646968,
-          39.2413601
+          -106.0887897,
+          40.9089827
         ]
       },
       "properties": {
-        "name": "Granite Creek",
+        "name": "Grace Creek",
         "coordinate_source": "Geocoded"
       }
     },
@@ -292,12 +278,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -106.3325916,
-          38.6657816
+          -107.2416392,
+          37.6532499
         ]
       },
       "properties": {
-        "name": "Grizzly Lake",
+        "name": "Grizzly Creek",
         "coordinate_source": "Geocoded"
       }
     },
@@ -312,6 +298,20 @@
       },
       "properties": {
         "name": "Hell Roaring",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.3325916,
+          38.6657816
+        ]
+      },
+      "properties": {
+        "name": "Grizzly Lake",
         "coordinate_source": "Geocoded"
       }
     },
@@ -340,20 +340,6 @@
       },
       "properties": {
         "name": "Illinois",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -106.5026681,
-          38.8787574
-        ]
-      },
-      "properties": {
-        "name": "Illinois Creek",
         "coordinate_source": "Geocoded"
       }
     },
@@ -432,20 +418,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -108.2231598,
-          37.7826857
-        ]
-      },
-      "properties": {
-        "name": "Little Fish Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -105.0529827,
           37.4660244
         ]
@@ -488,12 +460,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -107.3106384,
-          37.6710636
+          -105.5905333,
+          40.8009377
         ]
       },
       "properties": {
-        "name": "North Fork",
+        "name": "Mitchell Ditch",
         "coordinate_source": "Geocoded"
       }
     },
@@ -502,12 +474,26 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.2557957,
-          40.7846462
+          -105.5929783,
+          39.4394334
         ]
       },
       "properties": {
-        "name": "North Fork Cache La Poudre",
+        "name": "North Platte",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.1705961,
+          40.7267117
+        ]
+      },
+      "properties": {
+        "name": "Owl Creek",
         "coordinate_source": "Geocoded"
       }
     },
@@ -530,40 +516,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.4495665,
-          40.6595794
-        ]
-      },
-      "properties": {
-        "name": "Poudre Cache La",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -106.0878502,
           39.5627686
         ]
       },
       "properties": {
         "name": "Rainbow Lake",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -106.1849118,
-          40.5025421
-        ]
-      },
-      "properties": {
-        "name": "Rand Res",
         "coordinate_source": "Geocoded"
       }
     },
@@ -600,12 +558,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -108.0022283,
-          37.7039424
+          -105.1713788,
+          39.4074892
         ]
       },
       "properties": {
-        "name": "Silver Creek",
+        "name": "South Platte",
         "coordinate_source": "Geocoded"
       }
     }
