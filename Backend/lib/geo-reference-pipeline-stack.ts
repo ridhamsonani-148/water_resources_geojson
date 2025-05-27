@@ -73,7 +73,7 @@ export class GeoReferencePipelineStack extends cdk.Stack {
     const layer = new lambda.LayerVersion(this, 'GeoAnalysisLayer', {
       code: lambda.Code.fromAsset(path.join(__dirname, '../../layers'), {
         bundling: {
-          image: cdk.DockerImage.fromRegistry('python:3.9'),
+          image: cdk.DockerImage.fromRegistry('python:3.13'),
           command: [
             'bash', '-c',
             'pip install -r requirements.txt -t /asset-output/python && cp -r /asset-output/python /asset-output',
@@ -87,7 +87,7 @@ export class GeoReferencePipelineStack extends cdk.Stack {
     // Lambda function
     const analysisLambda = new lambda.Function(this, 'GeoAnalysisLambda', {
       functionName: 'GeoAnalysisLambda',
-      runtime: lambda.Runtime.PYTHON_3_9,
+      runtime: lambda.Runtime.PYTHON_3_13,
       handler: 'analysis_handler.lambda_handler',
       code: lambda.Code.fromAsset(path.join(__dirname, '../../lambda')),
       layers: [layer],
@@ -132,7 +132,7 @@ export class GeoReferencePipelineStack extends cdk.Stack {
       bucket.addEventNotification(
         s3.EventType.OBJECT_CREATED,
         new s3n.LambdaDestination(analysisLambda),
-        { prefix: 'raw/', suffix: suffix }
+        { prefix: 'raw_maps/', suffix: suffix }
       );
     });
 
