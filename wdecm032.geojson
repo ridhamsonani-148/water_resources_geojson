@@ -9,11 +9,11 @@
           [
             [
               -108.2231598,
-              37.6710636
+              37.7826857
             ],
             [
               -105.171198,
-              37.6710636
+              37.7826857
             ],
             [
               -105.171198,
@@ -25,7 +25,7 @@
             ],
             [
               -108.2231598,
-              37.6710636
+              37.7826857
             ]
           ]
         ]
@@ -130,27 +130,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -106.008603,
-          40.5533073
+          -106.1914206,
+          40.6884434
         ]
       },
       "properties": {
-        "name": "Michigan Creek",
-        "feature_type": "creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -107.3106384,
-          37.6710636
-        ]
-      },
-      "properties": {
-        "name": "North Fork",
+        "name": "Michigan River",
         "feature_type": "river",
         "coordinate_source": "Geocoded"
       }
@@ -160,12 +145,27 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.1839401,
-          40.1836735
+          -106.2787282,
+          40.7086987
         ]
       },
       "properties": {
-        "name": "Clearwater",
+        "name": "Illinois River",
+        "feature_type": "river",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.646767,
+          39.6833062
+        ]
+      },
+      "properties": {
+        "name": "Clearwater Creek",
         "feature_type": "creek",
         "coordinate_source": "Geocoded"
       }
