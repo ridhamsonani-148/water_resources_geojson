@@ -9,11 +9,11 @@
           [
             [
               -108.2231598,
-              37.7826857
+              37.6710636
             ],
             [
               -105.171198,
-              37.7826857
+              37.6710636
             ],
             [
               -105.171198,
@@ -25,7 +25,7 @@
             ],
             [
               -108.2231598,
-              37.7826857
+              37.6710636
             ]
           ]
         ]
@@ -100,6 +100,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -105.4495665,
+          40.6595794
+        ]
+      },
+      "properties": {
+        "name": "Cache La Poudre",
+        "feature_type": "river",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -108.2231598,
           37.7826857
         ]
@@ -115,13 +130,43 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -106.1914206,
-          40.6884434
+          -106.008603,
+          40.5533073
         ]
       },
       "properties": {
-        "name": "Michigan River",
+        "name": "Michigan Creek",
+        "feature_type": "creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -107.3106384,
+          37.6710636
+        ]
+      },
+      "properties": {
+        "name": "North Fork",
         "feature_type": "river",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.1839401,
+          40.1836735
+        ]
+      },
+      "properties": {
+        "name": "Clearwater",
+        "feature_type": "creek",
         "coordinate_source": "Geocoded"
       }
     }
