@@ -8,24 +8,24 @@
         "coordinates": [
           [
             [
-              -107.3697001,
-              37.3158323
+              -108.2231598,
+              37.7826857
             ],
             [
               -105.171198,
-              37.3158323
+              37.7826857
             ],
             [
               -105.171198,
-              40.8009377
+              40.9273826
             ],
             [
-              -107.3697001,
-              40.8009377
+              -108.2231598,
+              40.9273826
             ],
             [
-              -107.3697001,
-              37.3158323
+              -108.2231598,
+              37.7826857
             ]
           ]
         ]
@@ -40,13 +40,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -106.4582646,
-          40.244664
+          -106.6106893,
+          40.9273826
         ]
       },
       "properties": {
-        "name": "Hill Creek",
-        "feature_type": "creek",
+        "name": "Big Creek Lakes",
+        "feature_type": "lakes",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.6548071,
+          40.6718154
+        ]
+      },
+      "properties": {
+        "name": "Roxy Ann Lake",
+        "feature_type": "lake",
         "coordinate_source": "Geocoded"
       }
     },
@@ -61,21 +76,6 @@
       },
       "properties": {
         "name": "Rainbow Lake",
-        "feature_type": "lake",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -106.4817058,
-          40.5575803
-        ]
-      },
-      "properties": {
-        "name": "Pole Mountain Lake",
         "feature_type": "lake",
         "coordinate_source": "Geocoded"
       }
@@ -100,58 +100,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.5929783,
-          39.4394334
+          -108.2231598,
+          37.7826857
         ]
       },
       "properties": {
-        "name": "North Platte",
+        "name": "Little Fish Creek",
+        "feature_type": "creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.1914206,
+          40.6884434
+        ]
+      },
+      "properties": {
+        "name": "Michigan River",
         "feature_type": "river",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -107.3697001,
-          37.3158323
-        ]
-      },
-      "properties": {
-        "name": "Sheep Creek",
-        "feature_type": "creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -105.1721443,
-          39.1061055
-        ]
-      },
-      "properties": {
-        "name": "Little Creek",
-        "feature_type": "creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -105.5905333,
-          40.8009377
-        ]
-      },
-      "properties": {
-        "name": "Mitchell Ditch",
-        "feature_type": "ditch",
         "coordinate_source": "Geocoded"
       }
     }
