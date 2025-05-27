@@ -71,7 +71,7 @@ export class GeoReferencePipelineStack extends cdk.Stack {
 
     // Lambda layer
     const layer = new lambda.LayerVersion(this, 'GeoAnalysisLayer', {
-      code: lambda.Code.fromAsset(path.join(__dirname, '../../layers'), {
+      code: lambda.Code.fromAsset(path.join(__dirname, '../layers'), {
         bundling: {
           image: cdk.DockerImage.fromRegistry('python:3.13'),
           command: [
@@ -80,7 +80,7 @@ export class GeoReferencePipelineStack extends cdk.Stack {
           ],
         },
       }),
-      compatibleRuntimes: [lambda.Runtime.PYTHON_3_9],
+      compatibleRuntimes: [lambda.Runtime.PYTHON_3_13],
       description: 'Dependencies for GeoAnalysis Lambda',
     });
 
@@ -89,7 +89,7 @@ export class GeoReferencePipelineStack extends cdk.Stack {
       functionName: 'GeoAnalysisLambda',
       runtime: lambda.Runtime.PYTHON_3_13,
       handler: 'analysis_handler.lambda_handler',
-      code: lambda.Code.fromAsset(path.join(__dirname, '../../lambda')),
+      code: lambda.Code.fromAsset(path.join(__dirname, '../lambda')),
       layers: [layer],
       timeout: cdk.Duration.minutes(15),
       memorySize: 10240,
