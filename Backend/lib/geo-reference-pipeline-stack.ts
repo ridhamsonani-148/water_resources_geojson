@@ -118,7 +118,7 @@ export class GeoReferencePipelineStack extends cdk.Stack {
     const analysisLambda = new lambda.Function(this, 'GeoAnalysisLambda', {
       functionName: 'GeoAnalysisLambda',
       runtime: lambda.Runtime.PYTHON_3_13,
-      handler: 'lambda-function.lambda_handler',
+      handler: 'lambda_function.lambda_handler',
       code: lambda.Code.fromAsset(path.join(__dirname, '../lambda')),
       layers: [pillowLayer, geoJsonLayer],
       timeout: cdk.Duration.minutes(15),
