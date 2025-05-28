@@ -34,9 +34,37 @@ if [ -z "${GITHUB_OWNER:-}" ] || [ -z "${GITHUB_REPO:-}" ]; then
   fi
 fi
 
-# Prompt for client’s private GitHub repository
-if [ -z "${CLIENT_GITHUB_REPO:-}" ]; then
-  read -rp "Enter client’s private GitHub repository name (e.g., client-org/water-resources-archive): " CLIENT_GITHUB_REPO
+# Prompt for client’s private GitHub repository URL
+if [ -z "${CLIENT_GITHUB_URL:-}" ]; then
+  read -rp "Enter client’s private GitHub repository URL (e.g., https://github.com/client-org/water-resources-archive): " CLIENT_GITHUB_URL
+fi
+
+# Normalize client URL
+client_clean_url=${CLIENT_GITHUB_URL%.git}
+client_clean_url=${client_clean_url%/}
+
+# Extract owner/repo for client’s repository
+if [[ $client_clean_url =~ ^https://github\.com/([^/]+/[^/]+)$ ]]; then
+  client_path="${BASH_REMATCH[1]}"
+elif [[ $client_clean_url =~ ^git@github\.com:([^/]+/[^/]+)$ ]]; then
+  client_path="${BASH_REMATCH[1]}"
+else
+  echo "Unable to parse owner/repo from '$CLIENT_GITHUB_URL'"
+  read -rp "Enter client’s GitHub owner: " CLIENT_GITHUB_OWNER
+  read -rp "Enter client’s GitHub repo: " CLIENT_GITHUB_REPO_NAME
+fi
+
+if [ -z "${CLIENT_GITHUB_OWNER:-}" ] || [ -z "${CLIENT_GITHUB_REPO_NAME:-}" ]; then
+  CLIENT_GITHUB_OWNER=${client_path%%/*}
+  CLIENT_GITHUB_REPO_NAME=${client_path##*/}
+  echo "Detected client’s GitHub Owner: $CLIENT_GITHUB_OWNER"
+  echo "Detected client’s GitHub Repo: $CLIENT_GITHUB_REPO_NAME"
+  read -rp "Is this correct? (y/n): " CONFIRM
+  CONFIRM=$(printf '%s' "$CONFIRM" | tr '[:upper:]' '[:lower:]')
+  if [[ "$CONFIRM" != "y" && "$CONFIRM" != "yes" ]]; then
+    read -rp "Enter client’s GitHub owner: " CLIENT_GITHUB_OWNER
+    read -rp "Enter client’s GitHub repo: " CLIENT_GITHUB_REPO_NAME
+  fi
 fi
 
 # Prompt for client’s GitHub token
@@ -85,8 +113,6 @@ fi
 
 # Validate client’s GitHub token and repository
 echo "Validating client’s GitHub token and repository..."
-CLIENT_GITHUB_OWNER=$(echo "$CLIENT_GITHUB_REPO" | cut -d'/' -f1)
-CLIENT_GITHUB_REPO_NAME=$(echo "$CLIENT_GITHUB_REPO" | cut -d'/' -f2)
 repo_check=$(curl -s -H "Authorization: token $CLIENT_GITHUB_TOKEN" "https://api.github.com/repos/$CLIENT_GITHUB_OWNER/$CLIENT_GITHUB_REPO_NAME")
 if echo "$repo_check" | grep -q "Not Found"; then
   echo "Error: Client repository $CLIENT_GITHUB_OWNER/$CLIENT_GITHUB_REPO_NAME not found or token invalid."
@@ -140,7 +166,7 @@ ENVIRONMENT='{
     {"name": "ERROR_FOLDER", "value": "'"$ERROR_FOLDER"'", "type": "PLAINTEXT"},
     {"name": "ANALYSIS_FOLDER", "value": "'"$ANALYSIS_FOLDER"'", "type": "PLAINTEXT"},
     {"name": "GITHUB_TOKEN", "value": "'"$CLIENT_GITHUB_TOKEN"'", "type": "PLAINTEXT"},
-    {"name": "GITHUB_REPO", "value": "'"$CLIENT_GITHUB_REPO"'", "type": "PLAINTEXT"},
+    {"name": "GITHUB_REPO", "value": "'"$CLIENT_GITHUB_REPO_NAME"'", "type": "PLAINTEXT"},
     {"name": "BEDROCK_MODEL_ID", "value": "'"$BEDROCK_MODEL_ID"'", "type": "PLAINTEXT"},
     {"name": "BEDROCK_REGION", "value": "'"$BEDROCK_REGION"'", "type": "PLAINTEXT"},
     {"name": "ACTION", "value": "'"$ACTION"'", "type": "PLAINTEXT"}
