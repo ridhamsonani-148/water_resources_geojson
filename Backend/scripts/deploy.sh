@@ -146,7 +146,7 @@ SOURCE='{
   "type":"GITHUB",
   "location":"'"$GITHUB_URL"'",
   "buildspec":"Backend/buildspec.yml",
-  "auth":{"type":"OAUTH"}
+  "auth":{"type":"PERSONAL_ACCESS_TOKEN"}
 }'
 
 aws codebuild create-project \
