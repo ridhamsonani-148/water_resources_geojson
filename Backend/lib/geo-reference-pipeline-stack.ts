@@ -70,18 +70,16 @@ export class GeoReferencePipelineStack extends cdk.Stack {
     });
 
     // Lambda layer
-    const layer = new lambda.LayerVersion(this, 'GeoAnalysisLayer', {
-      code: lambda.Code.fromAsset(path.join(__dirname, '../layers'), {
-        bundling: {
-          image: cdk.DockerImage.fromRegistry('python:3.13'),
-          command: [
-            'bash', '-c',
-            'pip install -r requirements.txt -t /asset-output/python && cp -r /asset-output/python /asset-output',
-          ],
-        },
-      }),
+    const pillowLayer = new lambda.LayerVersion(this, 'PillowLayer', {
+      code: lambda.Code.fromAsset(path.join(__dirname, '../layers/compress_image_pillow.zip')),
       compatibleRuntimes: [lambda.Runtime.PYTHON_3_13],
-      description: 'Dependencies for GeoAnalysis Lambda',
+      description: 'Pillow dependencies for image compression',
+    });
+
+    const geoJsonLayer = new lambda.LayerVersion(this, 'GeoJsonLayer', {
+      code: lambda.Code.fromAsset(path.join(__dirname, '../layers/createTheGeoJsonLayer.zip')),
+      compatibleRuntimes: [lambda.Runtime.PYTHON_3_13],
+      description: 'Dependencies for GeoJSON processing',
     });
 
     // Lambda function
@@ -90,7 +88,7 @@ export class GeoReferencePipelineStack extends cdk.Stack {
       runtime: lambda.Runtime.PYTHON_3_13,
       handler: 'analysis_handler.lambda_handler',
       code: lambda.Code.fromAsset(path.join(__dirname, '../lambda')),
-      layers: [layer],
+      layers: [pillowLayer, geoJsonLayer],
       timeout: cdk.Duration.minutes(15),
       memorySize: 10240,
       ephemeralStorageSize: cdk.Size.mebibytes(10240),
