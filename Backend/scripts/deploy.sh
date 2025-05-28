@@ -145,8 +145,7 @@ ARTIFACTS='{"type":"NO_ARTIFACTS"}'
 SOURCE='{
   "type":"GITHUB",
   "location":"'"$GITHUB_URL"'",
-  "buildspec":"Backend/buildspec.yml",
-  "auth":{"type":"PERSONAL_ACCESS_TOKEN"}
+  "buildspec":"Backend/buildspec.yml"
 }'
 
 aws codebuild create-project \
