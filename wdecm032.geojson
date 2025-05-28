@@ -138,6 +138,34 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -107.0532597,
+          37.5027239
+        ]
+      },
+      "properties": {
+        "name": "Deadman Creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.0453594,
+          39.4769486
+        ]
+      },
+      "properties": {
+        "name": "Deer",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -107.776434,
           37.7190475
         ]
@@ -208,40 +236,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -106.5646968,
-          39.2413601
-        ]
-      },
-      "properties": {
-        "name": "Granite Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -106.5975314,
           39.0424914
         ]
       },
       "properties": {
         "name": "Grizzly",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -106.3325916,
-          38.6657816
-        ]
-      },
-      "properties": {
-        "name": "Grizzly Lake",
         "coordinate_source": "Geocoded"
       }
     },
@@ -446,12 +446,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.03194,
-          40.25694
+          -105.1705961,
+          40.7267117
         ]
       },
       "properties": {
-        "name": "Owl",
+        "name": "Owl Creek",
         "coordinate_source": "Geocoded"
       }
     },
@@ -466,6 +466,20 @@
       },
       "properties": {
         "name": "Pine",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.2844117,
+          40.3652266
+        ]
+      },
+      "properties": {
+        "name": "Pine Lake",
         "coordinate_source": "Geocoded"
       }
     },
@@ -494,20 +508,6 @@
       },
       "properties": {
         "name": "Rainbow Lake",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -106.1849118,
-          40.5025421
-        ]
-      },
-      "properties": {
-        "name": "Rand Res",
         "coordinate_source": "Geocoded"
       }
     },
