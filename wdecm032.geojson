@@ -12,11 +12,11 @@
               37.1852225
             ],
             [
-              -104.7944337,
+              -105.0529827,
               37.1852225
             ],
             [
-              -104.7944337,
+              -105.0529827,
               40.9273826
             ],
             [
@@ -46,20 +46,6 @@
       },
       "properties": {
         "name": "Big Creek Lakes",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -105.4495665,
-          40.6595794
-        ]
-      },
-      "properties": {
-        "name": "Cache La Poudre",
         "coordinate_source": "Geocoded"
       }
     },
@@ -110,54 +96,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -107.0532597,
-          37.5027239
-        ]
-      },
-      "properties": {
-        "name": "Deadman Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -107.776434,
           37.7190475
         ]
       },
       "properties": {
         "name": "Deer Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -108.0964497,
-          37.7549769
-        ]
-      },
-      "properties": {
-        "name": "Eagle Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -104.7944337,
-          39.7081718
-        ]
-      },
-      "properties": {
-        "name": "East Creek",
         "coordinate_source": "Geocoded"
       }
     },
@@ -194,20 +138,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -107.2416392,
-          37.6532499
-        ]
-      },
-      "properties": {
-        "name": "Grizzly Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -106.3325916,
           38.6657816
         ]
@@ -228,34 +158,6 @@
       },
       "properties": {
         "name": "Hot Sulphur",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -106.5026681,
-          38.8787574
-        ]
-      },
-      "properties": {
-        "name": "Illinois Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -106.2787282,
-          40.7086987
-        ]
-      },
-      "properties": {
-        "name": "Illinois River",
         "coordinate_source": "Geocoded"
       }
     },
@@ -311,6 +213,20 @@
         ]
       },
       "properties": {
+        "name": "Little Fish Cr.",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.2231598,
+          37.7826857
+        ]
+      },
+      "properties": {
         "name": "Little Fish Creek",
         "coordinate_source": "Geocoded"
       }
@@ -348,12 +264,26 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -106.1914206,
-          40.6884434
+          -105.5929783,
+          39.4394334
         ]
       },
       "properties": {
-        "name": "Michigan River",
+        "name": "North Platte",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -107.6015471,
+          37.2291741
+        ]
+      },
+      "properties": {
+        "name": "Pine",
         "coordinate_source": "Geocoded"
       }
     },
@@ -376,20 +306,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -106.1914206,
-          40.6884434
-        ]
-      },
-      "properties": {
-        "name": "River Michigan",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -106.6548071,
           40.6718154
         ]
@@ -404,26 +320,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.4199314,
-          38.3439287
+          -105.1713788,
+          39.4074892
         ]
       },
       "properties": {
-        "name": "Sandy Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -108.0022283,
-          37.7039424
-        ]
-      },
-      "properties": {
-        "name": "Silver Creek",
+        "name": "South Platte",
         "coordinate_source": "Geocoded"
       }
     }
