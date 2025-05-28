@@ -68,12 +68,54 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -104.9720707,
+          38.8967507
+        ]
+      },
+      "properties": {
+        "name": "Cascade",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -107.6725062,
           38.0266679
         ]
       },
       "properties": {
         "name": "Cascade Creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.8531052,
+          40.6050814
+        ]
+      },
+      "properties": {
+        "name": "Chambers",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.1839401,
+          40.1836735
+        ]
+      },
+      "properties": {
+        "name": "Clearwater",
         "coordinate_source": "Geocoded"
       }
     },
@@ -96,12 +138,26 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -107.0532597,
-          37.5027239
+          -105.8267279,
+          39.4153662
         ]
       },
       "properties": {
-        "name": "Deadman Creek",
+        "name": "Deadman",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.0453594,
+          39.4769486
+        ]
+      },
+      "properties": {
+        "name": "Deer",
         "coordinate_source": "Geocoded"
       }
     },
@@ -130,6 +186,20 @@
       },
       "properties": {
         "name": "Eagle Creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.8737875,
+          39.7711226
+        ]
+      },
+      "properties": {
+        "name": "East",
         "coordinate_source": "Geocoded"
       }
     },
@@ -180,6 +250,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -106.5975314,
+          39.0424914
+        ]
+      },
+      "properties": {
+        "name": "Grizzly",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -106.3325916,
           38.6657816
         ]
@@ -222,6 +306,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -105.0365943,
+          40.5531292
+        ]
+      },
+      "properties": {
+        "name": "Illinois",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -106.5026681,
           38.8787574
         ]
@@ -242,6 +340,20 @@
       },
       "properties": {
         "name": "Indian Creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.8899404,
+          40.5315018
+        ]
+      },
+      "properties": {
+        "name": "Joe Wright",
         "coordinate_source": "Geocoded"
       }
     },
@@ -306,12 +418,68 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -105.1171665,
+          40.5359975
+        ]
+      },
+      "properties": {
+        "name": "Michigan",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -106.008603,
           40.5533073
         ]
       },
       "properties": {
         "name": "Michigan Creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -107.3106384,
+          37.6710636
+        ]
+      },
+      "properties": {
+        "name": "North Fork",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.5929783,
+          39.4394334
+        ]
+      },
+      "properties": {
+        "name": "North Platte",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.03194,
+          40.25694
+        ]
+      },
+      "properties": {
+        "name": "Owl",
         "coordinate_source": "Geocoded"
       }
     },
@@ -362,6 +530,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -106.1849118,
+          40.5025421
+        ]
+      },
+      "properties": {
+        "name": "Rand Res",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -106.6548071,
           40.6718154
         ]
@@ -376,12 +558,40 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -105.964936,
+          39.6065917
+        ]
+      },
+      "properties": {
+        "name": "Silver",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -108.0022283,
           37.7039424
         ]
       },
       "properties": {
         "name": "Silver Creek",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.1713788,
+          39.4074892
+        ]
+      },
+      "properties": {
+        "name": "South Platte",
         "coordinate_source": "Geocoded"
       }
     }
