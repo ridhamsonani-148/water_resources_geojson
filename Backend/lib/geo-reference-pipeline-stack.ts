@@ -6,6 +6,7 @@ import * as s3n from 'aws-cdk-lib/aws-s3-notifications';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as logs from 'aws-cdk-lib/aws-logs';
 import * as path from 'path';
+import { AwsCustomResource, AwsCustomResourcePolicy, PhysicalResourceId } from 'aws-cdk-lib/custom-resources';
 
 export class GeoReferencePipelineStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -69,6 +70,37 @@ export class GeoReferencePipelineStack extends cdk.Stack {
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
     });
 
+    // Create S3 prefixes using AwsCustomResource
+    const prefixes = ['raw_maps/', `${errorFolder}/`, `${analysisFolder}/`];
+    prefixes.forEach((prefix, index) => {
+      new AwsCustomResource(this, `CreateS3Prefix${index}`, {
+        onCreate: {
+          service: 'S3',
+          action: 'putObject',
+          parameters: {
+            Bucket: bucket.bucketName,
+            Key: prefix,
+          },
+          physicalResourceId: PhysicalResourceId.of(`S3Prefix-${prefix}`),
+        },
+        onUpdate: {
+          service: 'S3',
+          action: 'putObject',
+          parameters: {
+            Bucket: bucket.bucketName,
+            Key: prefix,
+          },
+          physicalResourceId: PhysicalResourceId.of(`S3Prefix-${prefix}`),
+        },
+        policy: AwsCustomResourcePolicy.fromStatements([
+          new iam.PolicyStatement({
+            actions: ['s3:PutObject'],
+            resources: [`${bucket.bucketArn}/*`],
+          }),
+        ]),
+      });
+    });
+
     // Lambda layer
     const pillowLayer = new lambda.LayerVersion(this, 'PillowLayer', {
       code: lambda.Code.fromAsset(path.join(__dirname, '../layers/compress_image_pillow.zip')),
@@ -86,7 +118,7 @@ export class GeoReferencePipelineStack extends cdk.Stack {
     const analysisLambda = new lambda.Function(this, 'GeoAnalysisLambda', {
       functionName: 'GeoAnalysisLambda',
       runtime: lambda.Runtime.PYTHON_3_13,
-      handler: 'analysis_handler.lambda_handler',
+      handler: 'lambda_function.lambda_handler',
       code: lambda.Code.fromAsset(path.join(__dirname, '../lambda')),
       layers: [pillowLayer, geoJsonLayer],
       timeout: cdk.Duration.minutes(15),
@@ -144,7 +176,7 @@ export class GeoReferencePipelineStack extends cdk.Stack {
       description: 'ARN of the GeoAnalysis Lambda function',
     });
     new cdk.CfnOutput(this, 'UploadInstruction', {
-      value: `Upload images to s3://${bucket.bucketName}/raw/ with extensions: ${imageSuffixes.join(', ')}`,
+      value: `Upload images to s3://${bucket.bucketName}/raw_maps/ with extensions: ${imageSuffixes.join(', ')}`,
       description: 'Instructions for using the S3 bucket',
     });
   }
