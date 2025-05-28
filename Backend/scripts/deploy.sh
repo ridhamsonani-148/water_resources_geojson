@@ -3,7 +3,7 @@ set -euo pipefail
 
 # Prompt for GitHub URL
 if [ -z "${GITHUB_URL:-}" ]; then
-  read -rp "Enter GitHub repository URL (e.g., https://github.com/OWNER/REPO): " GITHUB_URL
+  read -rp "Enter source GitHub repository URL (e.g., https://github.com/OWNER/REPO): " GITHUB_URL
 fi
 
 # Normalize URL
@@ -32,6 +32,16 @@ if [ -z "${GITHUB_OWNER:-}" ] || [ -z "${GITHUB_REPO:-}" ]; then
     read -rp "Enter GitHub owner: " GITHUB_OWNER
     read -rp "Enter GitHub repo: " GITHUB_REPO
   fi
+fi
+
+# Prompt for client’s private GitHub repository
+if [ -z "${CLIENT_GITHUB_REPO:-}" ]; then
+  read -rp "Enter client’s private GitHub repository name (e.g., client-org/water-resources-archive): " CLIENT_GITHUB_REPO
+fi
+
+# Prompt for client’s GitHub token
+if [ -z "${CLIENT_GITHUB_TOKEN:-}" ]; then
+  read -rp "Enter client’s GitHub token for private repository: " CLIENT_GITHUB_TOKEN
 fi
 
 # Prompt for other parameters
@@ -77,14 +87,15 @@ if [[ "$ACTION" != "deploy" && "$ACTION" != "destroy" ]]; then
   exit 1
 fi
 
-# Configure GitHub source credential
-echo "Configuring GitHub source credential..."
-aws codebuild import-source-credentials \
-  --server-type GITHUB \
-  --auth-type PERSONAL_ACCESS_TOKEN \
-  --token "$GITHUB_TOKEN" \
-  --no-cli-pager
-
+# Validate client’s GitHub token and repository
+echo "Validating client’s GitHub token and repository..."
+CLIENT_GITHUB_OWNER=$(echo "$CLIENT_GITHUB_REPO" | cut -d'/' -f1)
+CLIENT_GITHUB_REPO_NAME=$(echo "$CLIENT_GITHUB_REPO" | cut -d'/' -f2)
+repo_check=$(curl -s -H "Authorization: token $CLIENT_GITHUB_TOKEN" "https://api.github.com/repos/$CLIENT_GITHUB_OWNER/$CLIENT_GITHUB_REPO_NAME")
+if echo "$repo_check" | grep -q "Not Found"; then
+  echo "Error: Client repository $CLIENT_GITHUB_OWNER/$CLIENT_GITHUB_REPO_NAME not found or token invalid."
+  exit 1
+fi
 
 # Create IAM role
 ROLE_NAME="${PROJECT_NAME}-service-role"
@@ -132,9 +143,8 @@ ENVIRONMENT='{
     {"name": "BUCKET_NAME", "value": "'"$BUCKET_NAME"'", "type": "PLAINTEXT"},
     {"name": "ERROR_FOLDER", "value": "'"$ERROR_FOLDER"'", "type": "PLAINTEXT"},
     {"name": "ANALYSIS_FOLDER", "value": "'"$ANALYSIS_FOLDER"'", "type": "PLAINTEXT"},
-    {"name": "GITHUB_TOKEN", "value": "'"$GITHUB_TOKEN"'", "type": "PLAINTEXT"},
-    {"name": "GITHUB_OWNER", "value": "'"$GITHUB_OWNER"'", "type": "PLAINTEXT"},
-    {"name": "GITHUB_REPO", "value": "'"$GITHUB_REPO"'", "type": "PLAINTEXT"},
+    {"name": "GITHUB_TOKEN", "value": "'"$CLIENT_GITHUB_TOKEN"'", "type": "PLAINTEXT"},
+    {"name": "GITHUB_REPO", "value": "'"$CLIENT_GITHUB_REPO"'", "type": "PLAINTEXT"},
     {"name": "BEDROCK_MODEL_ID", "value": "'"$BEDROCK_MODEL_ID"'", "type": "PLAINTEXT"},
     {"name": "BEDROCK_REGION", "value": "'"$BEDROCK_REGION"'", "type": "PLAINTEXT"},
     {"name": "ACTION", "value": "'"$ACTION"'", "type": "PLAINTEXT"}
