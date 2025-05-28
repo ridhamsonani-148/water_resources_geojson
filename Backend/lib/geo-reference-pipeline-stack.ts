@@ -135,7 +135,7 @@ export class GeoReferencePipelineStack extends cdk.Stack {
     });
 
     // Outputs
-    new cdk.CfnOutput(this, 'BucketName', {
+    new cdk.CfnOutput(this, 'BucketNameOutput', {
       value: bucket.bucketName,
       description: 'S3 bucket for Geo Pipeline',
     });
