@@ -6,6 +6,10 @@ phases:
       nodejs: 20
       python: 3.13
     commands:
+      - echo "Installing AWS CDK CLI..."
+      - npm install -g aws-cdk
+      - echo "Changing into cdk_backend directory"
+      - cd Backend
       - echo "Installing dependencies..."
       - npm ci
       - pip install -r requirements.txt --user
@@ -14,7 +18,7 @@ phases:
       - echo "Building TypeScript sources..."
       - npm run build
       - echo "Bootstrapping CDK..."
-      - npx cdk bootstrap --require-approval never
+      - cdk bootstrap --require-approval never
   build:
     commands:
       - |
@@ -30,7 +34,7 @@ phases:
             --parameters BedrockRegion="$BEDROCK_REGION";
         else
           echo "Deploying CDK stack...";
-          npx cdk deploy GeoReferencePipelineStack --require-approval never \
+          cdk deploy GeoReferencePipelineStack --require-approval never \
             --parameters BucketName="$BUCKET_NAME" \
             --parameters ErrorFolder="$ERROR_FOLDER" \
             --parameters AnalysisFolder="$ANALYSIS_FOLDER" \
