@@ -77,6 +77,15 @@ if [[ "$ACTION" != "deploy" && "$ACTION" != "destroy" ]]; then
   exit 1
 fi
 
+# Configure GitHub source credential
+echo "Configuring GitHub source credential..."
+aws codebuild import-source-credentials \
+  --server-type GITHUB \
+  --auth-type PERSONAL_ACCESS_TOKEN \
+  --token "$GITHUB_TOKEN" \
+  --no-cli-pager
+
+
 # Create IAM role
 ROLE_NAME="${PROJECT_NAME}-service-role"
 echo "Checking for IAM role: $ROLE_NAME"
@@ -133,7 +142,12 @@ ENVIRONMENT='{
 }'
 
 ARTIFACTS='{"type":"NO_ARTIFACTS"}'
-SOURCE='{"type":"GITHUB","location":"'"$GITHUB_URL"'","buildspec":"Backend/buildspec.yml"}'
+SOURCE='{
+  "type":"GITHUB",
+  "location":"'"$GITHUB_URL"'",
+  "buildspec":"Backend/buildspec.yml",
+  "auth":{"type":"OAUTH"}
+}'
 
 aws codebuild create-project \
   --name "$PROJECT_NAME" \
