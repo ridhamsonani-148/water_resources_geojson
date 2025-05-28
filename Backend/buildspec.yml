@@ -12,7 +12,7 @@ phases:
       - cd Backend
       - echo "Installing dependencies..."
       - npm ci
-      - pip install -r requirements.txt --user
+
   pre_build:
     commands:
       - echo "Building TypeScript sources..."

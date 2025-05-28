@@ -151,12 +151,12 @@ export class GeoReferencePipelineStack extends cdk.Stack {
       })
     );
 
-    // S3 event notifications
-    analysisLambda.addPermission('S3InvokePermission', {
-      principal: new iam.ServicePrincipal('s3.amazonaws.com'),
-      action: 'lambda:InvokeFunction',
-      sourceArn: bucket.bucketArn,
-    });
+    // // S3 event notifications
+    // analysisLambda.addPermission('S3InvokePermission', {
+    //   principal: new iam.ServicePrincipal('s3.amazonaws.com'),
+    //   action: 'lambda:InvokeFunction',
+    //   sourceArn: bucket.bucketArn,
+    // });
 
     // const imageSuffixes = ['.tif', '.tiff', '.png', '.jpg', '.jpeg'];
     bucket.addEventNotification(
