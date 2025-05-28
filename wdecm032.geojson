@@ -17,11 +17,11 @@
             ],
             [
               -104.7944337,
-              40.9273826
+              41.0139684
             ],
             [
               -108.2231598,
-              40.9273826
+              41.0139684
             ],
             [
               -108.2231598,
@@ -68,12 +68,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -104.9720707,
-          38.8967507
+          -105.2996194,
+          40.6867882
         ]
       },
       "properties": {
-        "name": "Cascade",
+        "name": "Cache La Poudre River",
         "coordinate_source": "Geocoded"
       }
     },
@@ -96,34 +96,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.8531052,
-          40.6050814
-        ]
-      },
-      "properties": {
-        "name": "Chambers",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -105.1839401,
-          40.1836735
-        ]
-      },
-      "properties": {
-        "name": "Clearwater",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -105.646767,
           39.6833062
         ]
@@ -138,68 +110,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.8267279,
-          39.4153662
-        ]
-      },
-      "properties": {
-        "name": "Deadman",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -106.0453594,
-          39.4769486
-        ]
-      },
-      "properties": {
-        "name": "Deer",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -107.776434,
           37.7190475
         ]
       },
       "properties": {
         "name": "Deer Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -108.0964497,
-          37.7549769
-        ]
-      },
-      "properties": {
-        "name": "Eagle Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -104.8737875,
-          39.7711226
-        ]
-      },
-      "properties": {
-        "name": "East",
         "coordinate_source": "Geocoded"
       }
     },
@@ -250,12 +166,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -106.5975314,
-          39.0424914
+          -107.2416392,
+          37.6532499
         ]
       },
       "properties": {
-        "name": "Grizzly",
+        "name": "Grizzly Creek",
         "coordinate_source": "Geocoded"
       }
     },
@@ -306,54 +222,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.0365943,
-          40.5531292
-        ]
-      },
-      "properties": {
-        "name": "Illinois",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -106.5026681,
-          38.8787574
-        ]
-      },
-      "properties": {
-        "name": "Illinois Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -107.9205693,
           37.1852225
         ]
       },
       "properties": {
         "name": "Indian Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -105.8899404,
-          40.5315018
-        ]
-      },
-      "properties": {
-        "name": "Joe Wright",
         "coordinate_source": "Geocoded"
       }
     },
@@ -418,40 +292,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.1171665,
-          40.5359975
-        ]
-      },
-      "properties": {
-        "name": "Michigan",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -106.008603,
           40.5533073
         ]
       },
       "properties": {
         "name": "Michigan Creek",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -107.3106384,
-          37.6710636
-        ]
-      },
-      "properties": {
-        "name": "North Fork",
         "coordinate_source": "Geocoded"
       }
     },
@@ -474,12 +320,26 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.03194,
-          40.25694
+          -106.3478345,
+          41.0139684
         ]
       },
       "properties": {
-        "name": "Owl",
+        "name": "North Platte River",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.1705961,
+          40.7267117
+        ]
+      },
+      "properties": {
+        "name": "Owl Creek",
         "coordinate_source": "Geocoded"
       }
     },
@@ -502,40 +362,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.4495665,
-          40.6595794
-        ]
-      },
-      "properties": {
-        "name": "Poudre Cache La",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -106.0878502,
           39.5627686
         ]
       },
       "properties": {
         "name": "Rainbow Lake",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -106.1849118,
-          40.5025421
-        ]
-      },
-      "properties": {
-        "name": "Rand Res",
         "coordinate_source": "Geocoded"
       }
     },
@@ -558,26 +390,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.964936,
-          39.6065917
+          -105.4199314,
+          38.3439287
         ]
       },
       "properties": {
-        "name": "Silver",
-        "coordinate_source": "Geocoded"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -108.0022283,
-          37.7039424
-        ]
-      },
-      "properties": {
-        "name": "Silver Creek",
+        "name": "Sandy Creek",
         "coordinate_source": "Geocoded"
       }
     },
@@ -592,6 +410,20 @@
       },
       "properties": {
         "name": "South Platte",
+        "coordinate_source": "Geocoded"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.1973387,
+          39.3041618
+        ]
+      },
+      "properties": {
+        "name": "South Platte River",
         "coordinate_source": "Geocoded"
       }
     }
