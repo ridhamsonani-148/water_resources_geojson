@@ -158,11 +158,11 @@ export class GeoReferencePipelineStack extends cdk.Stack {
       sourceArn: bucket.bucketArn,
     });
 
-    const imageSuffixes = ['.tif', '.tiff', '.png', '.jpg', '.jpeg'];
+    // const imageSuffixes = ['.tif', '.tiff', '.png', '.jpg', '.jpeg'];
     bucket.addEventNotification(
       s3.EventType.OBJECT_CREATED,
       new s3n.LambdaDestination(analysisLambda),
-      { prefix: 'raw_maps/', suffix: imageSuffixes.join(',') }
+      { prefix: 'raw_maps/', suffix: '.tif' }
     );
 
     // Outputs
@@ -175,7 +175,7 @@ export class GeoReferencePipelineStack extends cdk.Stack {
       description: 'ARN of the GeoAnalysis Lambda function',
     });
     new cdk.CfnOutput(this, 'UploadInstruction', {
-      value: `Upload images to s3://${bucket.bucketName}/raw_maps/ with extensions: ${imageSuffixes.join(', ')}`,
+      value: `Upload images to s3://${bucket.bucketName}/raw_maps/ with extensions: '.tif'}`,
       description: 'Instructions for using the S3 bucket',
     });
   }
