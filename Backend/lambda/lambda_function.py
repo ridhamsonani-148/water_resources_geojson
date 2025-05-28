@@ -15,7 +15,6 @@ from geopy.exc import GeocoderTimedOut, GeocoderServiceError
 
 # Initialize AWS clients
 s3_client = boto3.client('s3')
-textract_client = boto3.client('textract', region_name='us-west-2')
 
 # Initialize Nominatim geolocator
 geolocator = Nominatim(user_agent="water_resource_geocoder")
@@ -142,6 +141,8 @@ def analyze_with_bedrock(ocr_text, bedrock_model_id):
         "extract all names of water bodies (rivers, lakes, creeks, streams) and water infrastructure "
         "(reservoirs, dams, canals, ditches, power plants related to water management). "
         "Include only existing features. Exclude towns, mountains, proposed or other non-water features. "
+        "Ensure that you capture the full name of each water resource, including identifiers like 'Lake', 'Reservoir', or 'Canal'. "
+        "For example, if the text mentions 'Jackson Lake', return 'Jackson Lake', not just 'Jackson'. "
         "The text originally included township-range values (e.g., 'T6N', 'R 76W'), which have been removed. "
         "Be cautious with word combinations; for example, 'River Michigan Creek Deer' might be 'River Michigan' and 'Deer Creek'. "
         "Return only the list of names, separated by commas, in title case (e.g., 'River Michigan'), "
@@ -193,6 +194,9 @@ def lambda_handler(event, context):
     github_repo_name = os.environ.get("GITHUB_REPO_NAME")
     bedrock_model_id = os.environ.get("BEDROCK_MODEL_ID", "us.anthropic.claude-3-7-sonnet-20250219-v1:0")
     bedrock_region = os.environ.get("BEDROCK_REGION", "us-west-2")
+
+    global textract_client
+    textract_client = boto3.client('textract', region_name=bedrock_region)
 
     global bedrock_client
     bedrock_client = boto3.client("bedrock-runtime", region_name=bedrock_region)
