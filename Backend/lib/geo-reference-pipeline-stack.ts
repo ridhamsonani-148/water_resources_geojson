@@ -118,7 +118,7 @@ export class GeoReferencePipelineStack extends cdk.Stack {
     const analysisLambda = new lambda.Function(this, 'GeoAnalysisLambda', {
       functionName: 'GeoAnalysisLambda',
       runtime: lambda.Runtime.PYTHON_3_13,
-      handler: 'lambda_function.lambda_handler',
+      handler: 'lambda-function.lambda_handler',
       code: lambda.Code.fromAsset(path.join(__dirname, '../lambda')),
       layers: [pillowLayer, geoJsonLayer],
       timeout: cdk.Duration.minutes(15),
@@ -157,14 +157,13 @@ export class GeoReferencePipelineStack extends cdk.Stack {
       action: 'lambda:InvokeFunction',
       sourceArn: bucket.bucketArn,
     });
+
     const imageSuffixes = ['.tif', '.tiff', '.png', '.jpg', '.jpeg'];
-    imageSuffixes.forEach(suffix => {
-      bucket.addEventNotification(
-        s3.EventType.OBJECT_CREATED,
-        new s3n.LambdaDestination(analysisLambda),
-        { prefix: 'raw_maps/', suffix: suffix }
-      );
-    });
+    bucket.addEventNotification(
+      s3.EventType.OBJECT_CREATED,
+      new s3n.LambdaDestination(analysisLambda),
+      { prefix: 'raw_maps/', suffix: imageSuffixes.join(',') }
+    );
 
     // Outputs
     new cdk.CfnOutput(this, 'BucketNameOutput', {
