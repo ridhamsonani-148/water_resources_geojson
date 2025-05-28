@@ -63,10 +63,6 @@ if [ -z "${ANALYSIS_FOLDER:-}" ]; then
   ANALYSIS_FOLDER=${ANALYSIS_FOLDER:-analysis}
 fi
 
-if [ -z "${GITHUB_TOKEN:-}" ]; then
-  read -rp "Enter GitHub token: " GITHUB_TOKEN
-fi
-
 if [ -z "${BEDROCK_MODEL_ID:-}" ]; then
   read -rp "Enter Bedrock model ID [default: us.anthropic.claude-3-7-sonnet-20250219-v1:0]: " BEDROCK_MODEL_ID
   BEDROCK_MODEL_ID=${BEDROCK_MODEL_ID:-us.anthropic.claude-3-7-sonnet-20250219-v1:0}
