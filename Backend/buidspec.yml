@@ -4,37 +4,44 @@ phases:
   install:
     runtime-versions:
       nodejs: 20
-      python: 3.9
+      python: 3.13
     commands:
-      - npm install -g aws-cdk@2.140.0
-      - npm install
-      - pip install -r requirements.txt
+      - echo "Installing dependencies..."
+      - npm ci
+      - pip install -r requirements.txt --user
+  pre_build:
+    commands:
+      - echo "Building TypeScript sources..."
+      - npm run build
+      - echo "Bootstrapping CDK..."
+      - npx cdk bootstrap --require-approval never
   build:
     commands:
-      - npm run build
-      - cdk synth
       - |
         if [ "$ACTION" = "destroy" ]; then
           echo "Destroying CDK stack...";
-          cdk destroy GeoReferencePipelineStack --force \
+          npx cdk destroy GeoReferencePipelineStack --force \
             --parameters BucketName="$BUCKET_NAME" \
             --parameters ErrorFolder="$ERROR_FOLDER" \
             --parameters AnalysisFolder="$ANALYSIS_FOLDER" \
             --parameters GithubToken="$GITHUB_TOKEN" \
-            --parameters GithubRepoName="$GITHUB_REPO_NAME" \
+            --parameters GithubRepoName="$GITHUB_REPO" \
             --parameters BedrockModelId="$BEDROCK_MODEL_ID" \
             --parameters BedrockRegion="$BEDROCK_REGION";
         else
           echo "Deploying CDK stack...";
-          cdk deploy GeoReferencePipelineStack --require-approval never \
+          npx cdk deploy GeoReferencePipelineStack --require-approval never \
             --parameters BucketName="$BUCKET_NAME" \
             --parameters ErrorFolder="$ERROR_FOLDER" \
             --parameters AnalysisFolder="$ANALYSIS_FOLDER" \
             --parameters GithubToken="$GITHUB_TOKEN" \
-            --parameters GithubRepoName="$GITHUB_REPO_NAME" \
+            --parameters GithubRepoName="$GITHUB_REPO" \
             --parameters BedrockModelId="$BEDROCK_MODEL_ID" \
             --parameters BedrockRegion="$BEDROCK_REGION";
         fi
+  post_build:
+    commands:
+      - echo "CDK $ACTION complete."
 artifacts:
   files:
     - '**/*'

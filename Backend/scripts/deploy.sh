@@ -1,7 +1,44 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Prompt for required inputs
+# Prompt for GitHub URL
+if [ -z "${GITHUB_URL:-}" ]; then
+  read -rp "Enter GitHub repository URL (e.g., https://github.com/OWNER/REPO): " GITHUB_URL
+fi
+
+# Normalize URL
+clean_url=${GITHUB_URL%.git}
+clean_url=${clean_url%/}
+
+# Extract owner/repo
+if [[ $clean_url =~ ^https://github\.com/([^/]+/[^/]+)$ ]]; then
+  path="${BASH_REMATCH[1]}"
+elif [[ $clean_url =~ ^git@github\.com:([^/]+/[^/]+)$ ]]; then
+  path="${BASH_REMATCH[1]}"
+else
+  echo "Unable to parse owner/repo from '$GITHUB_URL'"
+  read -rp "Enter GitHub owner: " GITHUB_OWNER
+  read -rp "Enter GitHub repo: " GITHUB_REPO
+fi
+
+if [ -z "${GITHUB_OWNER:-}" ] || [ -z "${GITHUB_REPO:-}" ]; then
+  GITHUB_OWNER=${path%%/*}
+  GITHUB_REPO=${path##*/}
+  echo "Detected GitHub Owner: $GITHUB_OWNER"
+  echo "Detected GitHub Repo: $GITHUB_REPO"
+  read -rp "Is this correct? (y/n): " CONFIRM
+  CONFIRM=$(printf '%s' "$CONFIRM" | tr '[:upper:]' '[:lower:]')
+  if [[ "$CONFIRM" != "y" && "$CONFIRM" != "yes" ]]; then
+    read -rp "Enter GitHub owner: " GITHUB_OWNER
+    read -rp "Enter GitHub repo: " GITHUB_REPO
+  fi
+fi
+
+# Prompt for other parameters
+if [ -z "${PROJECT_NAME:-}" ]; then
+  read -rp "Enter CodeBuild project name (e.g., GeoPipelineDeploy): " PROJECT_NAME
+fi
+
 if [ -z "${BUCKET_NAME:-}" ]; then
   read -rp "Enter S3 bucket name (must be globally unique): " BUCKET_NAME
 fi
@@ -18,32 +55,6 @@ fi
 
 if [ -z "${GITHUB_TOKEN:-}" ]; then
   read -rp "Enter GitHub token: " GITHUB_TOKEN
-fi
-
-if [ -z "${GITHUB_URL:-}" ]; then
-  read -rp "Enter GitHub repository URL (e.g., https://github.com/OWNER/REPO): " GITHUB_URL
-fi
-
-# Normalize and parse GitHub URL
-clean_url=${GITHUB_URL%.git}
-clean_url=${clean_url%/}
-if [[ $clean_url =~ ^https://github\.com/([^/]+/[^/]+)$ ]]; then
-  path="${BASH_REMATCH[1]}"
-elif [[ $clean_url =~ ^git@github\.com:([^/]+/[^/]+)$ ]]; then
-  path="${BASH_REMATCH[1]}"
-else
-  echo "Unable to parse repo from '$GITHUB_URL'"
-  read -rp "Enter GitHub repo name manually: " GITHUB_REPO_NAME
-fi
-
-if [ -z "${GITHUB_REPO_NAME:-}" ]; then
-  GITHUB_REPO_NAME=${path##*/}
-  echo "Detected GitHub Repo: $GITHUB_REPO_NAME"
-  read -rp "Is this correct? (y/n): " CONFIRM
-  CONFIRM=$(printf '%s' "$CONFIRM" | tr '[:upper:]' '[:lower:]')
-  if [[ "$CONFIRM" != "y" && "$CONFIRM" != "yes" ]]; then
-    read -rp "Enter GitHub repo name manually: " GITHUB_REPO_NAME
-  fi
 fi
 
 if [ -z "${BEDROCK_MODEL_ID:-}" ]; then
@@ -66,41 +77,95 @@ if [[ "$ACTION" != "deploy" && "$ACTION" != "destroy" ]]; then
   exit 1
 fi
 
-# Install dependencies
-echo "Installing dependencies..."
-npm install
-pip install -r requirements.txt
+# Create IAM role
+ROLE_NAME="${PROJECT_NAME}-service-role"
+echo "Checking for IAM role: $ROLE_NAME"
 
-# Build TypeScript
-echo "Building TypeScript sources..."
-npm run build
-
-# Bootstrap CDK
-echo "Bootstrapping CDK..."
-cdk bootstrap --require-approval never
-
-# Deploy or destroy
-if [ "$ACTION" = "destroy" ]; then
-  echo "Destroying CDK stack..."
-  cdk destroy GeoReferencePipelineStack --force \
-    --parameters BucketName="$BUCKET_NAME" \
-    --parameters ErrorFolder="$ERROR_FOLDER" \
-    --parameters AnalysisFolder="$ANALYSIS_FOLDER" \
-    --parameters GithubToken="$GITHUB_TOKEN" \
-    --parameters GithubRepoName="$GITHUB_REPO_NAME" \
-    --parameters BedrockModelId="$BEDROCK_MODEL_ID" \
-    --parameters BedrockRegion="$BEDROCK_REGION"
+if aws iam get-role --role-name "$ROLE_NAME" >/dev/null 2>&1; then
+  echo "✓ IAM role exists"
+  ROLE_ARN=$(aws iam get-role --role-name "$ROLE_NAME" --query 'Role.Arn' --output text)
 else
-  echo "Deploying CDK stack..."
-  cdk deploy GeoReferencePipelineStack --require-approval never \
-    --parameters BucketName="$BUCKET_NAME" \
-    --parameters ErrorFolder="$ERROR_FOLDER" \
-    --parameters AnalysisFolder="$ANALYSIS_FOLDER" \
-    --parameters GithubToken="$GITHUB_TOKEN" \
-    --parameters GithubRepoName="$GITHUB_REPO_NAME" \
-    --parameters BedrockModelId="$BEDROCK_MODEL_ID" \
-    --parameters BedrockRegion="$BEDROCK_REGION"
+  echo "✱ Creating IAM role: $ROLE_NAME"
+  TRUST_DOC='{
+    "Version":"2012-10-17",
+    "Statement":[{
+      "Effect":"Allow",
+      "Principal":{"Service":"codebuild.amazonaws.com"},
+      "Action":"sts:AssumeRole"
+    }]
+  }'
+
+  ROLE_ARN=$(aws iam create-role \
+    --role-name "$ROLE_NAME" \
+    --assume-role-policy-document "$TRUST_DOC" \
+    --query 'Role.Arn' --output text)
+
+  echo "Attaching policies..."
+  aws iam attach-role-policy \
+    --role-name "$ROLE_NAME" \
+    --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+  aws iam attach-role-policy \
+    --role-name "$ROLE_NAME" \
+    --policy-arn arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess
+
+  echo "Waiting for IAM role to propagate..."
+  sleep 10
 fi
 
-echo "Action '$ACTION' completed."
+# Create CodeBuild project
+echo "Creating CodeBuild project: $PROJECT_NAME"
+
+ENVIRONMENT='{
+  "type": "LINUX_CONTAINER",
+  "image": "aws/codebuild/standard:7.0",
+  "computeType": "BUILD_GENERAL1_SMALL",
+  "environmentVariables": [
+    {"name": "BUCKET_NAME", "value": "'"$BUCKET_NAME"'", "type": "PLAINTEXT"},
+    {"name": "ERROR_FOLDER", "value": "'"$ERROR_FOLDER"'", "type": "PLAINTEXT"},
+    {"name": "ANALYSIS_FOLDER", "value": "'"$ANALYSIS_FOLDER"'", "type": "PLAINTEXT"},
+    {"name": "GITHUB_TOKEN", "value": "'"$GITHUB_TOKEN"'", "type": "PLAINTEXT"},
+    {"name": "GITHUB_OWNER", "value": "'"$GITHUB_OWNER"'", "type": "PLAINTEXT"},
+    {"name": "GITHUB_REPO", "value": "'"$GITHUB_REPO"'", "type": "PLAINTEXT"},
+    {"name": "BEDROCK_MODEL_ID", "value": "'"$BEDROCK_MODEL_ID"'", "type": "PLAINTEXT"},
+    {"name": "BEDROCK_REGION", "value": "'"$BEDROCK_REGION"'", "type": "PLAINTEXT"},
+    {"name": "ACTION", "value": "'"$ACTION"'", "type": "PLAINTEXT"}
+  ]
+}'
+
+ARTIFACTS='{"type":"NO_ARTIFACTS"}'
+SOURCE='{"type":"GITHUB","location":"'"$GITHUB_URL"'","buildspec":"Backend/buildspec.yml"}'
+
+aws codebuild create-project \
+  --name "$PROJECT_NAME" \
+  --source "$SOURCE" \
+  --artifacts "$ARTIFACTS" \
+  --environment "$ENVIRONMENT" \
+  --service-role "$ROLE_ARN" \
+  --output json \
+  --no-cli-pager
+
+if [ $? -eq 0 ]; then
+  echo "✓ CodeBuild project '$PROJECT_NAME' created."
+else
+  echo "✗ Failed to create CodeBuild project."
+  exit 1
+fi
+
+# Start build
+echo "Starting build for '$PROJECT_NAME'..."
+aws codebuild start-build \
+  --project-name "$PROJECT_NAME" \
+  --no-cli-pager \
+  --output json
+
+if [ $? -eq 0 ]; then
+  echo "✓ Build started."
+else
+  echo "✗ Failed to start build."
+  exit 1
+fi
+
+echo "Current CodeBuild projects:"
+aws codebuild list-projects --output table
+
 exit 0
